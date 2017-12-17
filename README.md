@@ -1,8 +1,6 @@
-# Bulk Savings Bond Value Calculator
+# Bulk Savings Bond Calculator
 
 Very simple Python script for querying [the US Treasury savings bond calculator website](https://www.treasurydirect.gov/BC/SBCPrice) in bulk.
-
-## Getting Started
 
 1. Use Python 3+
 2. `brew install chromedriver` to install headless Chrome driver
