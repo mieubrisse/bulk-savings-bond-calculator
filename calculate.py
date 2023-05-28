@@ -12,11 +12,11 @@ _WEB_TIMEOUT = 15
 _TREASURY_URL = "https://www.treasurydirect.gov/BC/SBCPrice"
 
 def submit_bond(browser, value, issue_date):
-    issue_date_elem = browser.find_element_by_name("IssueDate")
+    issue_date_elem = browser.find_element(by=By.NAME, value="IssueDate")
     issue_date_elem.clear()
     issue_date_elem.send_keys(issue_date)
-    Select(browser.find_element_by_name("Denomination")).select_by_value(value)
-    browser.find_element_by_name("btnAdd.x").click()
+    Select(browser.find_element(by=By.NAME, value="Denomination")).select_by_value(value)
+    browser.find_element(by=By.NAME, value="btnAdd.x").click()
 
 browser = webdriver.Chrome()
 browser.maximize_window()
@@ -33,6 +33,6 @@ with open(input_filepath) as fp:
     for row in csv_reader:
         submit_bond(browser, row[0], row[1])
 
-browser.find_element_by_name("btnAll.x").click()
+browser.find_element(by=By.NAME, value="btnAll.x").click()
 
 print("Done!")
